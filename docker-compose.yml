@@ -11,10 +11,10 @@ services:
       - db:/var/lib/postgresql/data
 
   app:
+    build: .
     depends_on:
       db:
         condition: service_healthy
-    image: umap/umap:2.0.2
     ports:
       - "${PORT-8000}:8000"
     environment:
@@ -25,6 +25,7 @@ services:
       - DEBUG=1
     volumes:
       - data:/srv/umap/uploads
+      - ./:/srv/umap
 
 volumes:
   data:
