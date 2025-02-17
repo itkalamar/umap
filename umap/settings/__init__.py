@@ -17,8 +17,9 @@ if not path:
     if not os.path.exists(path):
         # Retrocompat
         path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "local.py")
+        print(path)
         if not os.path.exists(path):
-            print(colorize("No valid UMAP_SETTINGS found", fg="yellow"))
+            print(colorize("No valid UMAP_SETTINGS found", fg="red"))
             path = None
 
 if path:
