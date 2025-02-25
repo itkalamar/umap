@@ -37,7 +37,6 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - ./static:/srv/umap/static
-      - ./staticfiles:/srv/umap/staticfiles
       - ./media:/srv/umap/media
     labels:
       - traefik.enable=true
