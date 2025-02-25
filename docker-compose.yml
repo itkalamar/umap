@@ -9,14 +9,16 @@ services:
       - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
       - db:/var/lib/postgresql/data
+    networks:
+      - default
+      - traefik-proxy
 
   app:
     build: .
+    hostname: app
     depends_on:
       db:
         condition: service_healthy
-    ports:
-      - "${PORT-8000}:8000"
     environment:
       - DATABASE_URL=postgis://postgres@db/postgres
       - SECRET_KEY=some-long-and-weirdly-unrandom-secret-key
@@ -26,7 +28,35 @@ services:
     volumes:
       - data:/srv/umap/uploads
       - ./:/srv/umap
+    networks:
+      - default
+      - traefik-proxy
+  
+  nginx:
+    image: nginx:stable-alpine
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./static:/code/static
+      - ./staticfiles:/code/staticfiles
+      - ./media:/code/media
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.da-dev.rule=Host(`demo.kalamar.xyz`)
+      - traefik.http.routers.da-dev.tls=true
+      - traefik.http.routers.da-dev.tls.certresolver=le
+    networks:
+      - default
+      - traefik-proxy
+    depends_on:
+      - app
+    restart: always
 
 volumes:
   data:
   db:
+
+
+
+networks:
+  traefik-proxy:
+    external: true
