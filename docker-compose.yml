@@ -36,9 +36,9 @@ services:
     image: nginx:stable-alpine
     volumes:
       - ./nginx:/etc/nginx/conf.d
-      - ./static:/code/static
-      - ./staticfiles:/code/staticfiles
-      - ./media:/code/media
+      - ./static:/srv/umap/static
+      - ./staticfiles:/srv/umap/staticfiles
+      - ./media:/srv/umap/media
     labels:
       - traefik.enable=true
       - traefik.http.routers.da-dev.rule=Host(`demo.kalamar.xyz`)
