@@ -142,3 +142,7 @@ output.sort()
 print('\n'.join(output))
 endef
 export PRINT_HELP_PYSCRIPT # End of python section
+
+
+dev-up:
+	@docker compose -f docker-compose-dev.yml up
