@@ -17,7 +17,7 @@ footer a {
     text-decoration: underline;
 }
 footer a.branding {
-    background-image: url("./img/logo_filigree.png");
+    background-image: url("./img/logo.png");
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 60px auto;

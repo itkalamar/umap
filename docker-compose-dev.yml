@@ -26,7 +26,7 @@ services:
       - data:/srv/umap/uploads
       - ./:/srv/umap
     ports:
-      - 8000:8000
+      - 8009:8000
 
 volumes:
   data:
