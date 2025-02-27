@@ -1,7 +1,24 @@
 {% load static i18n %}
 <style>
   .footerTable{
-    border : 1px solid black;
+    /*border : 1px solid black;*/
+    width:100%;
+    margin-top:10px;
+  }
+  .footerTable .middleText{
+    text-align : center;
+  }
+  .paraph
+  {
+    margin : 0;
+    padding : 0;
+    text-align : center;
+  }
+  .middleText li{
+    font-size:14px;
+  }
+  .listContact{
+    font-size:14px;
   }
 </style>
 <footer>
@@ -13,20 +30,22 @@
             <img class="colophon" src="{% static 'umap/img/gl.png' %}" alt="" width="250px" height="100px" />
           </td>
           <td class="" style="width:33,33%">
-            <div class="col-md-4">
-            <p>&copy; 2025 SIG | create by Kalamar.</p>
-            <ul>
-                <li><a href="#docs">Documentation et guide</a></li>
-                <li><a href="#terms">Conditions d'utilisation</a></li>
-                <li><a href="#contributors">Contributeurs</a></li>
-            </ul>
-          </div>
+            <div class="middleText">
+
+              <ul>
+                  <li><a href="#docs">Documentation et guide</a></li>
+                  <li><a href="#terms">Conditions d'utilisation</a></li>
+                  <li><a href="#contributors">Contributeurs</a></li>
+              </ul>
+              <p style="font-size:14px">&copy; 2025 GeoLigth service | made by Kalamar | Based on uMap.</p>
+            </div>
           </td>
           <td>
-            <div class="" style="width:33,33%">
-              <p> sfs fsfsfq</p>
-              <p> sfs fsfsfq</p>
-              <p> sfs fsfsfq</p>
+            <div class="listContact" style="width:33,33%">
+              <p class="paraph">Rendre vos réalisateurs visible est métier</p>
+              <p class="paraph"> +228 90 27 59 64</p>
+              <p class="paraph"> contact@geolight.pro</p>
+              <p class="paraph"> Lomé-adidogomé | Non loin de là !</p>
           </div>
           </td>
         </tr>
