@@ -1,13 +1,43 @@
-{% load i18n %}
+{% load static i18n %}
 
 <footer>
-  <a href="{% url "home" %}" class="branding">uMap</a>
+  <div class="row">
+    <div class="branding">
+      <table>
+        <tr>
+          <td class="" style="width:33%">
+            <img class="colophon" src="{% static 'umap/img/gl.png' %}" alt="" width="250px" height="100px" />
+          </td>
+          <td class="" style="width:33,33%">
+            <div class="col-md-4">
+            <p>&copy; 2025 SIG | create by Kalamar.</p>
+            <ul>
+                <li><a href="#docs">Documentation et guide</a></li>
+                <li><a href="#terms">Conditions d'utilisation</a></li>
+                <li><a href="#contributors">Contributeurs</a></li>
+            </ul>
+          </div>
+          </td>
+          <td>
+            <div class="" style="width:33,33%">
+              <p> sfs fsfsfq</p>
+              <p> sfs fsfsfq</p>
+              <p> sfs fsfsfq</p>
+          </div>
+          </td>
+        </tr>
+      </table>
+      {% comment %}<img class="colophon" src="{% static 'umap/img/sig.png' %}" alt="" width="100px" height="100px" />{% endcomment %}
+
+    </div>
+  </div>
+  {% comment %}<a href="https://wiki.openstreetmap.org/wiki/UMap" class="branding">Nos Cartes</a>
   <span>{% trans "An OpenStreetMap project" %}
   ({% trans "version" %} <a href="https://docs.umap-project.org/en/stable/changelog/">{{ UMAP_VERSION }}</a>)</span>
   {% if UMAP_HOST_INFOS.url and UMAP_HOST_INFOS.name %}<span>{% trans "Hosted by" %} <a href="{{ UMAP_HOST_INFOS.url }}">{{ UMAP_HOST_INFOS.name }}</a></span>{% endif %}
   {% if UMAP_HOST_INFOS.email %}<a href="mailto:{{ UMAP_HOST_INFOS.email }}">{% trans "Contact" %}</a>{% endif %}
-  {% if UMAP_HELP_URL %}<a href="{{ UMAP_HELP_URL }}">{% trans "Help" %}</a>{% endif %}
-  {% get_language_info_list for LANGUAGES as languages %}
+  {% if UMAP_HELP_URL %}<a href="{{ UMAP_HELP_URL }}">{% trans "Help" %}</a>{% endif %}{% endcomment %}
+  {% comment %}{% get_language_info_list for LANGUAGES as languages %}
   <form action="{% url "set_language" %}" method="post" class="i18n_switch">
     {% csrf_token %}
     <select name="language" onchange="this.form.submit()">
@@ -18,5 +48,5 @@
         </option>
       {% endfor %}
     </select>
-  </form>
+  </form>{% endcomment %}
 </footer>
