@@ -56,7 +56,7 @@ footer .i18n_switch {
     margin-bottom: 0;
 }
 .umap-nav h1 a:not(.button) {
-    background-image: url("./img/logo.svg");
+    background-image: url("./img/logo-top.png");
     background-position: left center;
     background-repeat: no-repeat;
     background-size: 60px auto;
